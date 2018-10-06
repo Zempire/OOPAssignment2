@@ -1,0 +1,15 @@
+Opening, 0, 2000, 60
+Soccer 1, 3, 80, 47
+Soccer 2, 6, 160, 37
+Soccer 3, 9, 500, 22
+Track and Field 1, 1, 80, 50
+Track and Field 2, 2, 100, 52
+Track and Field 3, 3, 120, 42
+Track and Field 4, 4, 140, 25
+Swimming 1, 5, 100, 37
+Swimming 2, 6, 100, 20
+Gymnastics 1, 7, 60, 43
+Gymnastics 2, 8, 100, 34
+Basketball 1, 5, 150, 35
+Basketball 2, 7, 300, 30
+Closing, 9, 800, 40
