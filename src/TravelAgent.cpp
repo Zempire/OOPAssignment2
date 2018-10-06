@@ -176,8 +176,7 @@ Package TravelAgent::buildPackage(ClientRequest request) {
 	vector<EventTicket> eventTickets;
 
 	//Create the Flight Tickets.
-	vector<FlightTicket> flightTickets =
-		{{2000, calculateFlight(0, request.firstDay), request.firstDay},
+	vector<FlightTicket> flightTickets = {{2000, calculateFlight(0, request.firstDay), request.firstDay},
 		 {2000, calculateFlight(1, request.lastDay), request.lastDay}};
 //	profit += (flightTickets.at(0).getDiscount() * .03);
 //	profit += (flightTickets.at(1).getDiscount() * .03);
