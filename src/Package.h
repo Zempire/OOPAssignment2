@@ -16,16 +16,30 @@ using namespace std;
 
 class Package{
 public:
-	Package(vector<FlightTicket> flights, vector<EventTicket> events, vector<HotelVoucher> hotels){
+	Package(int clientNumber, vector<FlightTicket> flights, vector<EventTicket> events, vector<HotelVoucher> hotels){
 		flightTickets = flights;
 		eventTickets = events;
 		hotelVouchers = hotels;
-		cout << "\nPACKAGE CREATED!!!\n";
+		clientNo = clientNumber;
+	}
+
+	void print() {
+		cout << "\nCLIENT NO: " << clientNo << endl;
+		cout << "FLIGHTS:" << endl;
+		for (unsigned int i = 0; i < flightTickets.size(); i++)
+			flightTickets.at(i).print();
+		cout << "HOTELS:" << endl;
+		for (unsigned int i = 0; i < hotelVouchers.size(); i++)
+			hotelVouchers.at(i).print();
+		cout << "EVENTS:" << endl;
+		for (unsigned int i = 0; i < eventTickets.size(); i++)
+			eventTickets.at(i).print();
+
 	}
 
 	~Package(){}
 private:
-	int clientNo = 0;
+	int clientNo;
 	vector<FlightTicket> flightTickets;	// 0 is to TOKYO. 1 is from TOKYO.
 	vector<EventTicket> eventTickets;
 	vector<HotelVoucher> hotelVouchers;

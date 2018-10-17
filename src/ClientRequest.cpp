@@ -12,17 +12,11 @@
 using namespace std;
 
 ClientRequest::ClientRequest(double amount, int star, vector<Event*> eventList) {
+	clientCount++;
 	budget = amount;
 	hotelRating = star;
 	events = eventList;
-
-	// Set the lower and upper bounds of the trip.
-	for (unsigned int i = 0; i < events.size(); i++) {
-		if (events.at(i)->getDay() < firstDay)
-			firstDay = events.at(i)->getDay();
-		if (events.at(i)->getDay() > lastDay)
-			lastDay = events.at(i)->getDay();
-	}
+	clientNo = clientCount;
 }
 
 void ClientRequest::print() {
@@ -34,7 +28,7 @@ void ClientRequest::print() {
 	}
 }
 
-bool ClientRequest::sortbySize (ClientRequest const & left, ClientRequest const & right) {
+bool ClientRequest::sortBySize (ClientRequest const & left, ClientRequest const & right) {
 	return left.events.size() < right.events.size();
 }
 
@@ -42,9 +36,27 @@ bool ClientRequest::sortByBudget (ClientRequest const & left, ClientRequest cons
 	return left.budget < right.budget;
 }
 
+bool ClientRequest::sortByRating (ClientRequest const & left, ClientRequest const & right) {
+	return left.hotelRating < right.hotelRating;
+}
+
+void ClientRequest::calculateTripLength() {
+	firstDay = 9;
+	lastDay = 0;
+	for (unsigned int i = 0; i < events.size(); i++) {
+		if (events.at(i)->getDay() < firstDay)
+			firstDay = events.at(i)->getDay();
+		if (events.at(i)->getDay() > lastDay)
+			lastDay = events.at(i)->getDay();
+	}
+}
+
 ClientRequest::~ClientRequest(){
 
 }
+
+int ClientRequest::clientCount = 0;
+
 
 
 

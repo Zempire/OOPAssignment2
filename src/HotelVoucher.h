@@ -19,6 +19,10 @@ public:
 	: Ticket(price, discount, date){
 		rating = stars;
 	}
+
+	void print() {
+		cout << rating << " star hotel on day " << ticketDate << ": $" << discount << endl;
+	}
 	~HotelVoucher(){}
 private:
 	int rating;

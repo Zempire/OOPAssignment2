@@ -17,10 +17,11 @@ public:
 	FlightTicket(double price, double discount, int date)
 	: Ticket(price, discount, date){}
 
+	void print() {
+		cout << "Date of Flight: " << ticketDate;
+		cout << ", Cost: $" << discount << endl;
+	}
 	~FlightTicket(){}
-private:
-	double ticketPrice = 2000;
-
 };
 
 #endif

@@ -20,6 +20,9 @@ public:
 		eventName = name;
 		eventNo = number;
 	}
+	void print() {
+		cout << eventName << " on day " << ticketDate << ": $" << discount << endl;
+	}
 	~EventTicket(){}
 
 private:
