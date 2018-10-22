@@ -91,7 +91,9 @@ bool TravelAgent::checkRequest(ClientRequest & request) {
 		} else
 			eventTotal += request.events.at(i)->getPrice();
 	}
+
 	request.calculateTripLength();
+
 	// Get the cost for the hotels.
 	for (int i = request.firstDay; i < request.lastDay; i++) {
 		if (hotels[2].getQuantity(i) > 0){
@@ -114,7 +116,6 @@ bool TravelAgent::checkRequest(ClientRequest & request) {
 	grandTotal = eventTotal + hotelTotal + flightTotal;
 
 	if (request.budget < grandTotal) {
-//		cout << "Sorry you do not have the budget for this request." << endl;
 		request.requestTotal = grandTotal;
 		request.requestError = 1;
 		return false;

@@ -26,7 +26,7 @@ public:
 	TravelAgent();
 	// Build the events as part of the constructor.
 
-	void doSomeWork(vector<ClientRequest> requests);
+	virtual void doSomeWork(vector<ClientRequest> requests);
 	//Do stuff as opposed to doing it in the driver file.
 
 	Event getEvent(int position);
