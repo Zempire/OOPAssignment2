@@ -80,12 +80,9 @@ Event TravelAgent::getEvent(int position) {
 bool TravelAgent::checkRequest(ClientRequest & request) {
 	double hotelTotal = 0, flightTotal = 0, eventTotal = 0, grandTotal = 0;
 
-//	cout << "\nChecking request for Client No: " << request.clientNo << endl;
 	for (unsigned int i = 0; i < request.events.size(); i++) {
 		// Calculate the total cost of all events.
 		if (request.events.at(i)->getQuantity() < 1) {
-//			cout << "No tickets available for ";
-//			cout << request.events.at(i)->getName() << ".\n";
 			request.requestError = 2;
 			return false;
 		} else
@@ -132,8 +129,8 @@ Package TravelAgent::buildPackage(ClientRequest request) {
 		 {2000, calculateFlight(0, request.firstDay), request.firstDay},
 		 {2000, calculateFlight(1, request.lastDay), request.lastDay}
 	};
-	profit += (flightTickets.at(0).getDiscount() * .03);
-	profit += (flightTickets.at(1).getDiscount() * .03);
+	profit += (flightTickets.at(0).getDiscount() * .05);
+	profit += (flightTickets.at(1).getDiscount() * .05);
 
 //	Create the Hotel Vouchers.
 	for (int i = request.firstDay; i < request.lastDay; i++) {
@@ -157,7 +154,7 @@ Package TravelAgent::buildPackage(ClientRequest request) {
 		}
 		HotelVoucher voucher(fullPrice, discountPrice, i, stars);
 		hotelVouchers.push_back(voucher);
-		profit += (voucher.getDiscount() * .03);
+		profit += (voucher.getDiscount() * .05);
 	}
 
 	// Create the EventTickets
